@@ -1,4 +1,4 @@
-# Kafka listener
+# Kafka watcher
 
 This is a simple Python daeom listening to Kafka topics and
 processing the messages. Configured by YAML file. Example:
@@ -10,3 +10,7 @@ processing the messages. Configured by YAML file. Example:
           hostname: localhost:11211
 
 Handler classes are expected to be in handlers directory. 
+
+Run:
+
+    python kafka-watcher.py --config watchers.yaml
