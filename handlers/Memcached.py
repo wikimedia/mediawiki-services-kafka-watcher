@@ -1,6 +1,9 @@
 import memcache
+import time
+
 
 class Memcached(object):
+
     def __init__(self, hostname, **params):
         self.mc = memcache.Client([hostname])
 
@@ -16,7 +19,7 @@ class Memcached(object):
             purge_time = time.time() + message.get('uto', 0)
             text = text.replace('$UNIXTIME$', '%.6f' % purge_time)
 #        print("Set {0}-{1}-{2}".format(message['key'].encode('utf-8'), text, int(message['ttl'])))
-        self.mc.set(message['key'].encode('utf-8'), text, int(message['ttl']) )
+        self.mc.set(message['key'].encode('utf-8'), text, int(message['ttl']))
 
     def delete(self, message):
         self.mc.delete(message['key'])

@@ -38,7 +38,7 @@ for msg in consumer:
         print("Could not parse data, meh")
         continue
     try:
-    handlers[msg.topic].handle(msg.topic, data)
+        handlers[msg.topic].handle(msg.topic, data)
     except:
         e = sys.exc_info()
         print("Oops, something happened: " + str(e))
