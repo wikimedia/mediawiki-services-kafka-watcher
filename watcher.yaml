@@ -2,5 +2,6 @@ listeners:
     - topic: wancache-purge
       handler: Memcached
       params: 
-        hostname: localhost:11211
-    
+        hostname: localhost
+        port: 11211
+
